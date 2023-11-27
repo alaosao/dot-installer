@@ -1,7 +1,8 @@
-Import subprocess
-Import logging
-Import os
-From datetime import datetime
+import subprocess
+import logging
+import os
+import time
+from datetime import datetime
 
 # logging set up for execute.py 
 logging.basicConfig(filename='(insert name).log', encoding='utf-8', level=logging.DEBUG)
@@ -31,8 +32,8 @@ time.sleep(200)
 
 directory_path = ‘dir.py'
 execute_python_file(directory_path)
-Try: 
-Completed_process = subprocess.run ([(python', directory_path], capture_output=True, text=True)
+try: 
+completed_process = subprocess.run ([(python', directory_path], capture_output=True, text=True)
 if completed_process.returncode == 0:
 logging.info("{datetime.utcnow()}: Execution successful.")
 print(f“{datetime.utcnow()}: Execution to ‘{directory_path}’ successful”)
@@ -46,8 +47,8 @@ time.sleep(200)
 
 filechecker_path = checker.py'
 execute_python_file(filechecker_path)
-Try: 
-Completed_process = subprocess.run ([(python', filechecker_path], capture_output=True, text=True)
+try: 
+completed_process = subprocess.run ([(python', filechecker_path], capture_output=True, text=True)
 if completed_process.returncode == 0:
 logging.info("{datetime.utcnow()}: Execution successful.")
 print(f“{datetime.utcnow()}: Execution to ‘{filechecker_path}’ successful”)
