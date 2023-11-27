@@ -1,11 +1,7 @@
-Execute.py
 Import subprocess
 Import logging
 Import os
 From datetime import datetime
-
-
-os
 
 # logging set up for execute.py 
 logging.basicConfig(filename='(insert name).log', encoding='utf-8', level=logging.DEBUG)
