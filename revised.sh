@@ -29,12 +29,7 @@ fi
 sleep 20
 
 # Install neofetch
-NEO_URL="https://github.com/dylanaraps/neofetch/archive/7.1.0.tar.gz"
-NEO_DESTINATION="./neofetch-7.1.0.tar.gz"
-log "Downloading and installing neofetch..."
-curl -L -o "$NEO_DESTINATION" "$NEO_URL"
-tar -xf "$NEO_DESTINATION" && cd neofetch-7.1.0 && make install
-log "Neofetch installed."
+yay -S neofetch
 
 # Sleep for 15 seconds
 sleep 15
@@ -42,32 +37,34 @@ sleep 15
 # ------------------------------------
 # download polybar
 
-POLY_URL="[enter polybar github]"
-POLY_DESTINATION="[enter polybar destination]"
 
-curl -L -o "$POLY_DESTINATION" "$POLY_URL" #download
-tar -xf "$POLY_DESTINATION" # extract
-
-cd [polybar] #enter file
-make install #install
+git clone https://github.com/polybar/polybar
+cd polybar #enter file
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+sudo make install
 Echo “Polybar installed from github repo”
 log() {
     echo "$(date +"%H:%M:%S: Polybar installed….")”
 }
+
 
 Sleep (25s)
 
 # ------------------------------------
 #download rofi
 
-ROFI_URL="[enter ROFI github]"
-ROFI_DESTINATION="[enter ROFI destination]"
+git clone https://github.com/davatorium/rofi.git
+cd rofi
+autoreconf -i
+mkdir build
+cd build
+../configure
+make
+sudo make install
 
-curl -L -o "$ROFI_DESTINATION" "$ROFI_URL" #download
-tar -xf "$ROFI_DESTINATION" # extract
-
-cd [polybar] #enter file
-make install #install
 Echo “Rofi installed from github repo”
 log() {
     echo "$(date +"%H:%M:%S: Rofi installed….")”
