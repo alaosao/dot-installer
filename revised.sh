@@ -39,19 +39,15 @@ sleep 15
 
 
 git clone https://github.com/polybar/polybar
-cd polybar #enter file
+cd polybar
 mkdir build
 cd build
 cmake ..
 make -j$(nproc)
 sudo make install
-Echo “Polybar installed from github repo”
-log() {
-    echo "$(date +"%H:%M:%S: Polybar installed….")”
-}
+log "Polybar installed from GitHub repo."
 
-
-Sleep (25s)
+Sleep 25
 
 # ------------------------------------
 #download rofi
